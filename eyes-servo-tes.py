@@ -5,12 +5,6 @@ from Servo import Servo
 # servo init
 left_ear = Servo(0)
 right_ear = Servo(1)
-# jaws = Servo(2)
-# jaws = Servo(3)
-# e = Servo(4)
-# f = Servo(5)
-# g = Servo(6)
-# h = Servo(7)
 
 # servo origins
 LEFT_EAR_ORIG = 0.5
@@ -20,11 +14,6 @@ JAWS_ORIG = 0
 # move servos to origin
 left_ear.write(LEFT_EAR_ORIG)
 right_ear.write(RIGHT_EAR_ORIG)
-# jaws.write(JAWS_ORIG)
-# e.write(0.445)# 48
-# f.write(0.435)# 45
-# g.write(0.45)# 48
-# h.write(0.415)# 43
 
 # Neo pixel vars
 LED_COUNT = 128  # 64
@@ -144,8 +133,8 @@ wait_ms = 50
 wait_s = 3
 
 
-# prints a eye based on a emotion
 def print_conEye(strip):
+    """Prints a eye based on a emotion"""
     j = 0
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, con_eye[j])
@@ -157,16 +146,10 @@ def print_conEye(strip):
     # Ears
     right_ear.write(0.6)
     left_ear.write(0.3)
-    # Eyebrow right:right-servo
-    # h.write(0.54)# 52
-    # Eyebrow left:left-servo
-    # e.write(0.355)# .27
     time.sleep(wait_s)
     # to origin
     right_ear.write(RIGHT_EAR_ORIG)
     left_ear.write(LEFT_EAR_ORIG)
-    # h.write(0.415)
-    # e.write(0.445)
 
 
 def print_surEye(strip):
@@ -178,26 +161,12 @@ def print_surEye(strip):
         else:
             j += 1
     strip.show()
-    # Mouth
-    # jaws.write(0.11)
     # Ears
     right_ear.write(0.6)
     left_ear.write(0.3)
-    # Eyebrow right up
-    # g.write(0.37)# 38
-    # h.write(0.51)# 52
-    # Eyebrow left up
-    # e.write(0.37)
-    # f.write(0.55)
     time.sleep(wait_s)
-    # to origin
-    # jaws.write(JAWS_ORIG)
     right_ear.write(RIGHT_EAR_ORIG)
     left_ear.write(LEFT_EAR_ORIG)
-    # g.write(0.47)
-    # h.write(0.415)
-    # e.write(0.445)
-    # f.write(0.435)
 
 
 def print_sadEye(strip):
@@ -205,11 +174,6 @@ def print_sadEye(strip):
         strip.setPixelColor(i, sad_eye[i])
     strip.show()
     # TODO: put servo movements here!!!
-    # Mouth
-    # jaws.write(0.3)
-    # Ears
-    # to origin
-    # jaws.write(JAWS_ORIG)
     time.sleep(wait_s)
 
 
@@ -219,22 +183,12 @@ def print_hapEye(strip):
     for j in range(strip.numPixels() / 2):
         strip.setPixelColor(j + 64, hap_eye[j])
     strip.show()
-    # Mouth
-    # jaws.write(0.02)
     # Ears
     left_ear.write(0.6)
     right_ear.write(0.3)
-    # Eyebrow right:left-servo
-    # g.write(0.275) # 27
-    # Eyebrw left:right-servo
-    # f.write(0.61)# 66
     time.sleep(wait_s)
-    # back to origin
-    # jaws.write(JAWS_ORIG)
     right_ear.write(RIGHT_EAR_ORIG)
     left_ear.write(LEFT_EAR_ORIG)
-    # g.write(0.47)# 48
-    # f.write(0.435)# 45
 
 
 def print_calEye(strip):
@@ -256,9 +210,8 @@ def print_eneEye(strip):
     time.sleep(wait_s)
 
 
-# puts a color on every pixel
-def colorWipe(strip, color,
-              wait_ms=50):
+def colorWipe(strip, color, wait_ms=50):
+    """Puts a color on every pixel"""
     for i in range(strip.numPixels() * 2):
         strip.setPixelColor(i, color)
         strip.show()
@@ -281,12 +234,4 @@ if __name__ == '__main__':
         print_conEye(strip)
         print("Surprise eyes")
         print_surEye(strip)
-        # print "Sad eyes"
-        # print_sadEye(strip)
-        # print "Happy eyes"
-        # print_hapEye(strip)
-        # print "Calm eyes"
-        # print_calEye(strip)
-        # print "Energetic eyes"
-        # print_eneEye(strip)
         print("End eyes animations")
