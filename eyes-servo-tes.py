@@ -133,7 +133,7 @@ wait_ms = 50
 wait_s = 3
 
 
-def print_conEye(strip):
+def print_con_eye(strip):
     """Prints a eye based on a emotion"""
     j = 0
     for i in range(strip.numPixels()):
@@ -152,7 +152,7 @@ def print_conEye(strip):
     left_ear.write(LEFT_EAR_ORIG)
 
 
-def print_surEye(strip):
+def print_sur_eye(strip):
     j = 0
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, sur_eye[j])
@@ -169,7 +169,7 @@ def print_surEye(strip):
     left_ear.write(LEFT_EAR_ORIG)
 
 
-def print_sadEye(strip):
+def print_sad_eye(strip):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, sad_eye[i])
     strip.show()
@@ -177,7 +177,7 @@ def print_sadEye(strip):
     time.sleep(wait_s)
 
 
-def print_hapEye(strip):
+def print_hap_eye(strip):
     for i in range(strip.numPixels() / 2):
         strip.setPixelColor(i, hap_eye[i])
     for j in range(strip.numPixels() / 2):
@@ -191,7 +191,7 @@ def print_hapEye(strip):
     left_ear.write(LEFT_EAR_ORIG)
 
 
-def print_calEye(strip):
+def print_cal_eye(strip):
     j = 0
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, cal_eye[j])
@@ -203,14 +203,14 @@ def print_calEye(strip):
     time.sleep(wait_s)
 
 
-def print_eneEye(strip):
+def print_ene_eye(strip):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, ene_eye[i])
     strip.show()
     time.sleep(wait_s)
 
 
-def colorWipe(strip, color, wait_ms=50):
+def color_wipe(strip, color, wait_ms=50):
     """Puts a color on every pixel"""
     for i in range(strip.numPixels() * 2):
         strip.setPixelColor(i, color)
@@ -226,12 +226,12 @@ if __name__ == '__main__':
     strip.begin()
 
     print("Color wipe")
-    colorWipe(strip, Color(255, 255, 255))
+    color_wipe(strip, Color(255, 255, 255))
 
     while (True):
         print("Begin eyes animations")
         print("Confortable eyes")
-        print_conEye(strip)
+        print_con_eye(strip)
         print("Surprise eyes")
-        print_surEye(strip)
+        print_sur_eye(strip)
         print("End eyes animations")
